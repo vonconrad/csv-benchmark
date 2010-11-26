@@ -12,7 +12,7 @@ require 'excelsior'
 file = 'csv/presidents.csv'
 
 Benchmark.bm do |x|
-  x.report('csv') do
+  x.report('csv      ') do
     CSV.open(file, 'r', ',') {|row| row}
   end
   
@@ -20,11 +20,11 @@ Benchmark.bm do |x|
     FasterCSV.foreach(file, :col_sep =>',') {|row| row}
   end
   
-  x.report('ccsv') do
+  x.report('ccsv     ') do
     Ccsv.foreach(file) {|row| row}
   end
   
-  x.report('csvscan') do
+  x.report('csvscan  ') do
     open(file) do |io|
       CSVScan.scan(io) {|row| row}
     end

@@ -8,3 +8,13 @@ require 'fastercsv'
 require 'ccsv'
 require 'csvscan'
 require 'excelsior'
+
+file = 'csv/presidents.csv'
+
+Benchmark.bm do |x|
+  x.report('csv') do
+    CSV.open(file, 'r', ',') do |row|
+      row
+    end
+  end
+end

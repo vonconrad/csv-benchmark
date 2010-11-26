@@ -29,4 +29,12 @@ Benchmark.bm do |x|
       values
     end
   end
+  
+  x.report('csvscan') do
+    open(file) do |io|
+      CSVScan.scan(io) do |row|
+        p row
+      end
+    end
+  end
 end

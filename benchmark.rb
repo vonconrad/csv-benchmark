@@ -37,4 +37,10 @@ Benchmark.bm do |x|
       end
     end
   end
+  
+  x.report('excelsior') do
+    Excelsior::Reader.rows(File.open(file, 'rb')) do |row|
+      row
+    end
+  end
 end

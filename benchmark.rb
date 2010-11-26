@@ -17,4 +17,10 @@ Benchmark.bm do |x|
       row
     end
   end
+  
+  x.report('fastercsv') do
+    FasterCSV.foreach(file, :col_sep =>',') do |row|
+      row
+    end
+  end
 end

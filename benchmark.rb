@@ -33,7 +33,7 @@ Benchmark.bm do |x|
   x.report('csvscan') do
     open(file) do |io|
       CSVScan.scan(io) do |row|
-        p row
+        row
       end
     end
   end

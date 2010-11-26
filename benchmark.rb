@@ -25,8 +25,8 @@ Benchmark.bm do |x|
   end
   
   x.report('ccsv') do
-    Ccsv.foreach(file) do |values|
-      values
+    Ccsv.foreach(file) do |row|
+      row
     end
   end
   

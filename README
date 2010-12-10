@@ -1,0 +1,6 @@
+Simple benchmarking script for comparing different Ruby csv parsers
+  
+Sample CSVs taken from:
+
+presidents.csv > See People Software (http://seepeoplesoftware.com/downloads/older-versions/11-sample-csv-file-of-us-presidents.html)
+geoip.csv > MaxMind (http://www.maxmind.com/app/geolitecountry)

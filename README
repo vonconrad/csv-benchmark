@@ -1,6 +1,16 @@
 Simple benchmarking script for comparing different Ruby csv parsers
-  
-Sample CSVs taken from:
 
+Output with geoip.csv:
+
+user      system      total        real
+csv       61.090000   0.340000  61.430000 ( 77.955225)
+fastercsv 12.990000   0.330000  13.320000 ( 13.826669)
+excelsior  0.500000   0.020000   0.520000 (  0.526380)
+ccsv       0.430000   0.020000   0.450000 (  0.445827)
+csvscan    0.400000   0.020000   0.420000 (  0.423212)
+
+Sample CSVs are taken from:
 presidents.csv > See People Software (http://seepeoplesoftware.com/downloads/older-versions/11-sample-csv-file-of-us-presidents.html)
-geoip.csv > MaxMind (http://www.maxmind.com/app/geolitecountry)
+geoip.csv 		 > MaxMind (http://www.maxmind.com/app/geolitecountry)
+
+If you want to try a (significantly) larger file, MaxMind has a city-level geoip file as well: http://www.maxmind.com/app/geolitecity

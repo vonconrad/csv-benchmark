@@ -9,7 +9,7 @@ require 'ccsv'
 require 'csvscan'
 require 'excelsior'
 
-file = 'csv/presidents.csv'
+file = 'csv/geoip.csv'
 
 Benchmark.bm do |x|
   x.report('csv      ') do
@@ -19,18 +19,18 @@ Benchmark.bm do |x|
   x.report('fastercsv') do
     FasterCSV.foreach(file, :col_sep =>',') {|row| row}
   end
+
+  x.report('excelsior') do
+    csv = File.open(file, 'r')
+    Excelsior::Reader.rows(csv) {|row| row}
+  end
   
   x.report('ccsv     ') do
     Ccsv.foreach(file) {|row| row}
   end
   
   x.report('csvscan  ') do
-    open(file) do |io|
-      CSVScan.scan(io) {|row| row}
-    end
-  end
-  
-  x.report('excelsior') do
-    Excelsior::Reader.rows(File.open(file, 'r')) {|row| row}
+    csv = File.open(file, 'r')
+    CSVScan.scan(csv) {|row| row}
   end
 end

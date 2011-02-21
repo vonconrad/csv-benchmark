@@ -1,13 +1,39 @@
 Simple benchmarking script for comparing different Ruby csv parsers
 
-Output with geoip.csv:
+Results
+=======
 
-user      system      total        real
-csv       61.090000   0.340000  61.430000 ( 77.955225)
-fastercsv 12.990000   0.330000  13.320000 ( 13.826669)
-excelsior  0.500000   0.020000   0.520000 (  0.526380)
-ccsv       0.430000   0.020000   0.450000 (  0.445827)
-csvscan    0.400000   0.020000   0.420000 (  0.423212)
+Testing csv/presidents.csv
+
+               user     system      total        real
+csv        0.020000   0.000000   0.020000 (  0.026629)
+fastercsv  0.010000   0.000000   0.010000 (  0.001558)
+lightcsv   0.000000   0.000000   0.000000 (  0.002036)
+excelsior  0.000000   0.000000   0.000000 (  0.000305)
+ccsv       0.010000   0.000000   0.010000 (  0.011097)
+csvscan    0.000000   0.000000   0.000000 (  0.000221)
+
+Testing csv/geoip.csv
+
+               user     system      total        real
+csv       52.720000   0.140000  52.860000 ( 53.465961)
+fastercsv 11.090000   0.050000  11.140000 ( 11.327960)
+lightcsv   5.470000   0.030000   5.500000 (  5.508147)
+excelsior  0.580000   0.010000   0.590000 (  0.592589)
+ccsv       0.470000   0.020000   0.490000 (  0.480324)
+csvscan    0.420000   0.010000   0.430000 (  0.435153)
+
+Parsing Error Handling
+======================
+
+While CSVScan, cCSV, and Excelsior may be the fastest, they do it by having no error catching/handling.
+
+So your CSV may be malformed, but it won't raise an error, meaning parsing may stop half way through, but appear to have fully worked.
+
+The slowest three (CSV, FasterCSV, and LightCSV) do catch paring errors and raise exceptions for you to handle.
+
+Credits
+=======
 
 Sample CSVs are taken from:
 presidents.csv > See People Software (http://seepeoplesoftware.com/downloads/older-versions/11-sample-csv-file-of-us-presidents.html)

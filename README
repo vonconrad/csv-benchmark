@@ -1,4 +1,6 @@
-Simple benchmarking script for comparing different Ruby csv parsers
+Simple benchmarking script for comparing different Ruby csv parsers.
+
+Some of these gems will only work with MRI 1.8, as they are native extensions.
 
 Results
 =======
@@ -26,9 +28,7 @@ csvscan    0.420000   0.010000   0.430000 (  0.435153)
 Parsing Error Handling
 ======================
 
-While CSVScan, cCSV, and Excelsior may be the fastest, they do it by having no error catching/handling.
-
-So your CSV may be malformed, but it won't raise an error, meaning parsing may stop half way through, but appear to have fully worked.
+While CSVScan, cCSV, and Excelsior may be the fastest, they do it by having little-to-no error catching/handling.
 
 The slowest three (CSV, FasterCSV, and LightCSV) do catch paring errors and raise exceptions for you to handle.
 
